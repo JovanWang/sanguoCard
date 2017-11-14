@@ -17,6 +17,7 @@ $(function () {
     var user_blue_sir = [sirdar_method.create_sir(blue_sir_1), sirdar_method.create_sir(blue_sir_2), sirdar_method.create_sir(blue_sir_3)];
     var user_red_sir = [sirdar_method.create_sir(red_sir_1), sirdar_method.create_sir(red_sir_2), sirdar_method.create_sir(red_sir_3)];
   }
+	console.log(user_blue_sir,user_red_sir);
 
   var user_blue_attacking_sir = -1; //  保存蓝方选择的出战将领
   var user_red_attacking_sir = -1;  //  保存红方选择的出战将领
