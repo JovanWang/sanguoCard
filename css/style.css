@@ -1,0 +1,96 @@
+ /* 上部分的卡片样式 */
+.element {
+  box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+  border: 1px dashed rgba(127,255,255,0.25);
+  cursor: pointer;
+
+}
+
+.element:hover {
+  box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+  border: 1px dashed rgba(127,255,255,0.75);
+}
+.element:active {
+  box-shadow: 0px 0px 12px #0e90d2;
+  border: 1px dashed #0e90d2;
+} 
+.element_attack {
+  box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+  border: 2px solid #0c79b1;
+  cursor: pointer;
+
+}
+ /* 上部分的卡片样式 */
+.element_low {
+  box-shadow: 0px 0px 12px rgba(200,0,0,0.5);
+  border: 1px dashed  rgba(200,0,0,0.25);
+  cursor: pointer;
+}
+
+.element_low:hover {
+  box-shadow: 0px 0px 12px rgba(200,0,0,0.75);
+  border: 1px dashed  rgba(200,0,0,0.75);
+}
+.element_low:active {
+  box-shadow: 0px 0px 12px #dd514c;
+  border: 1px dashed  #dd514c;
+} 
+.element_low_attack {
+  box-shadow: 0px 0px 12px rgba(200,0,0,0.75);
+  border: 2px solid #dd514c;
+  cursor: pointer;
+
+}
+/* 出战详情文字显示的div样式 */
+.attack_detail_div{
+  overflow: auto; 
+}
+.pivotal_data {
+  text-align: center;
+}
+.attack_detail_div{
+  font-size: 11px;
+}
+/* 效果显示的div样式 */
+#effect_up_div{
+  font-size: 13px;
+}
+#effect_low_div{
+  font-size: 13px;
+}
+#up_attack_display{
+  font-size: 13px; 
+  overflow:hidden;
+}
+#low_attack_display{
+  font-size: 13px; 
+  overflow:hidden;
+}
+/* #retime_display{
+  font-size: 50px; 
+} */
+/* 待出战的卡牌摆放样式 */
+#low_sir{
+  display: flex;
+  justify-content: space-around;
+  height: 20%;
+}
+.element_low{
+  display: none;
+
+}
+#up_sir{
+  display: flex;
+  justify-content: space-around;
+  height: 20%;
+}
+.element_up{
+  display: none;
+  
+}
+#low_sir img{
+  height: 100%;
+}
+#up_sir img{
+  height: 100%;
+}

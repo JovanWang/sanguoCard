@@ -1,0 +1,186 @@
+<html>
+
+<head>
+
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>ArenaFighting</title>
+    <link rel="icon" type="image/jpg" href="img/img_common/timg.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <!-- <script src="js/sirdar.js"></script> -->
+    <script src="js/create_sir.js"></script>
+    <script src="js/timer.js"></script>
+  </head>
+
+  <body style="background: url(img/img_common/arena_fighting.jpg) no-repeat;max-width: 1000px;margin:0 auto;">
+    <div class="am-container" style="height: 1%;width: 100%">
+
+    </div>
+    <div class="am-g am-g-fixed" style="display: flex;align-items:center ">
+      <!-- 上层的简介页 -->
+      <div class="am-u-sm-3" style="background-color: #f5f5f5;height: 23%;overflow: auto;">
+        <div><span id="base_up">请选择查看将领！</span></div>
+        <div><span id="attr_up"></span></div>
+        <div id="effect_up_div"><span></span></div>
+      </div>
+      <!-- 上层的所有卡片页 -->
+      <div class="am-u-sm-6" id="up_sir">
+        <div class="element" index="0" id="up_sir_0">
+          <figure class="am-thumbnail" style="margin:0px" index="0">
+            <img src="img/img_sirdar/chuzhan_white.jpg" index="0" alt="将领" />
+          </figure>
+        </div>
+        <div class="element" index="1" id="up_sir_1">
+          <figure class="am-thumbnail" style="margin:0px" index="1">
+            <img src="img/img_sirdar/chuzhan_white.jpg" index="1" alt="将领" />
+          </figure>
+        </div>
+        <div class="element" index="2" id="up_sir_2">
+          <figure class="am-thumbnail" style="margin:0px" index="2">
+            <img src="img/img_sirdar/chuzhan_white.jpg" index="2" alt="将领" />
+          </figure>
+        </div>
+      </div>
+      <!-- 上层的操作页 -->
+      <div class="am-u-sm-3" style="display: none">
+        <button type="button" id="up_select_sir" class="am-btn am-btn-primary am-round">选择出战</button><br/>
+        <button type="button" id="up_retreat_sir" class="am-btn am-btn-success am-round">战术回防</button><br/><br/>
+        <button type="button" class="am-btn am-btn-danger am-round" onclick="evacuate()">撤离战场</button>
+      </div>
+    </div>
+
+    <div class="am-g am-g-fixed">
+      <!-- 上中层的出战关键数据 -->
+      <div class="am-u-sm-3">
+        <p class="pivotal_data">力：<b id="pivotal_up_stren">-</b></p>
+        <p class="pivotal_data">速：<b id="pivotal_up_rate">-</b></p>
+        <p class="pivotal_data">体：<b id="pivotal_up_stamina">-</b></p>
+      </div>
+      <!-- 上中层的出战卡片页 -->
+      <div class="am-u-sm-6">
+        <div style="width:30%;margin:0 auto;">
+          <!-- 伤害特效 -->
+          <div id="up_hurt_display" style="position: absolute;left:50%;top:10%;display: none">
+
+          </div>
+          <div style="display: none;position: relative;" class="element_attack" id="up_sir_attack">
+            <figure class="am-thumbnail" style="margin:0px">
+              <img src="img/img_sirdar/guanyu.jpg" alt="关羽" />
+            </figure>
+          </div>
+          <!-- 效果发动显示 -->
+          <div id="up_attack_display" style="position: absolute;height:100%;left:70%;top:10%;display: none;">
+
+          </div>
+        </div>
+      </div>
+      <!-- 上中层的战斗详情页 -->
+      <div class="am-u-sm-3 attack_detail_div" style="background-color: #f5f5f5;height: 23%">
+        <div id="attack_detail_up">玩家1：欢迎“玩家1”进入游戏！</div>
+      </div>
+    </div>
+    <!-- 分界线 -->
+
+    <div class="am-g am-g-fixed">
+      <!-- 下中层的出战关键数据 -->
+      <div class="am-u-sm-3">
+        <p class="pivotal_data">力：<b id="pivotal_low_stren">-</b></p>
+        <p class="pivotal_data">速：<b id="pivotal_low_rate">-</b></p>
+        <p class="pivotal_data">体：<b id="pivotal_low_stamina">-</b></p>
+      </div>
+      <!-- 下中层的出战卡片页 -->
+      <div class="am-u-sm-6" ">
+      <div style="width:30%;margin:0 auto; ">
+        <div style="display: none;position: relative; " class="element_low_attack " id="low_sir_attack ">
+          <figure class="am-thumbnail " style="margin:0px ">
+            <img src="img/img_sirdar/guanyu.jpg " alt="关羽 "/>
+          </figure>
+        </div>
+        <!-- 效果发动显示 -->
+        <div id="low_attack_display " style="position: absolute;height:100%;left:70%;top:10%;display: none; ">
+          
+        </div>
+        
+      </div>
+    </div>
+    <!-- 下中层的战斗详情页 -->
+    <div class="am-u-sm-3 attack_detail_div " style="background-color: #f5f5f5;height: 23% ">
+      <div id="attack_detail_low ">玩家2：欢迎“玩家2”进入游戏!</div>
+    </div>
+  </div>
+
+  <div class="am-g am-g-fixed " style="display: flex;align-items:center ">
+    <!-- 下层的简介页 -->
+    <div class="am-u-sm-3 " style="background-color: #f5f5f5;height: 23%;overflow: auto; ">
+      <div><span id="base_low ">请选择查看将领！</span></div>
+      <div><span id="attr_low "></span></div>
+      <div id="effect_low_div "><span></span></div>
+    </div>
+    <!-- 下层的所有卡片页 -->
+    <div class="am-u-sm-6 " id="low_sir ">
+      <div class="element_low " index="0 " id="low_sir_0 ">
+        <figure class="am-thumbnail " style="margin:0px " index="0 ">
+          <img src="img/img_sirdar/chuzhan_white.jpg " alt="将领 " index="0 "/>
+        </figure>
+      </div>
+      <div class="element_low " index="1 " id="low_sir_1 ">
+        <figure class="am-thumbnail " style="margin:0px " index="1 ">
+          <img src="img/img_sirdar/chuzhan_white.jpg " alt="将领 " index="1 "/>
+        </figure>
+      </div>
+      <div class="element_low " index="2 " id="low_sir_2 ">
+        <figure class="am-thumbnail " style="margin:0px " index="2 ">
+          <img src="img/img_sirdar/chuzhan_white.jpg " alt="将领 "/ index="2 ">
+        </figure>
+      </div>
+    </div>
+    
+    <!-- 下层的操作页 -->
+    <div class="am-u-sm-3 ">
+      <button type="button " id="low_select_sir " class="am-btn am-btn-primary am-round ">选择出战</button><br/>
+      <button type="button " id="low_retreat_sir " class="am-btn am-btn-success am-round ">战术回防</button><br/>
+      <button type="button " class="am-btn am-btn-danger am-round " onclick="evacuate() ">撤离战场</button>
+    </div>
+  </div>
+
+      <!-- 特效渲染 -->
+      <!-- 居中倒计时div -->
+  <div class="am-g am-g-fixed " style="position: absolute;top:36%; ">
+    <div class="am-u-sm-6 am-u-sm-centered ">
+      <!-- <div style="position: absolute;right:70%; "> -->
+        <img src="img/img_common/retime_wait.png " alt="倒计时 " style="max-width: 100%;height: auto; " id="retime_head "/>
+        <div id="retime_display " style="display: none; ">
+            <img src="img/img_common/retime_3.png " alt="倒计时 " style="max-width: 100%;height: auto; "/>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+      <!-- 右上方倒计时div -->
+<!--   <div class="am-g am-g-fixed " style="position: absolute;top:1%; ">
+    <div class="am-u-sm-3 am-u-sm-offset-9 ">
+      <div style="position: absolute;left:10%; ">
+        <img src="img/img_common/retime_0.png " alt="倒计时 " style="max-width: 100%;height: auto; " />
+        <div id="retime_display " style="display: none; ">
+            <img src="img/img_common/retime_3.png " alt="倒计时 " style="max-width: 100%;height: auto; "/>
+        </div>
+      </div>
+    </div>
+  </div> -->
+      <!-- /特效渲染/ -->
+  <!-- 警告框 -->
+  <div class="am-modal am-modal-alert " tabindex="-1 " id="my-alert ">
+    <div class="am-modal-dialog ">
+      <div class="am-modal-bd " id="alert_text ">
+        警告！
+      </div>
+      <div class="am-modal-footer ">
+        <span class="am-modal-btn ">确定</span>
+      </div>
+    </div>
+  </div>
+<script src="js/arena_op.js "></script>
+</body>
+</html>

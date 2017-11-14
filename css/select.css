@@ -1,0 +1,62 @@
+<style type="text/css" media="screen">
+
+html, body {
+  height: 98%;
+}
+/* 所有的卡片布局效果 */
+.allgroup{
+	width: 530px;
+	height: 500px;
+	margin-left: 20px; 
+	float: left;
+	display: flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+	justify-content:space-around;
+	align-content:space-around;
+}
+.element {
+  box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+  border: 1px dashed rgba(127,255,255,0.25);
+  cursor: pointer;
+	width: 28%;
+	height: 32%;
+}
+.element img{
+	width: 100%;
+}
+.element:hover {
+  box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+  border: 1px dashed rgba(127,255,255,0.75);
+}
+.element:active {
+  box-shadow: 0px 0px 12px #0e90d2;
+  border: 1px dashed #0e90d2;
+}
+.element_attack {
+  box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+  border: 2px solid #0c79b1;
+  cursor: pointer;
+}
+/* 选好后的布局 */
+.selectgroup{
+	max-height: 500px;
+}
+.selectgroup .sirdar_name{
+  font-size: 30px;
+  margin: 5px;
+  text-align: center;
+}
+.selectgroup img{
+	width: 250px;
+	float: left;
+  border: 1px dashed rgba(127,255,255,0.25);
+}
+.selectgroup .sirdar_intro{
+	height: 360px;
+  overflow: auto; 
+  font-size: 30px;
+  margin: 5px;
+  /* text-align: center; */
+}
+	</style>
